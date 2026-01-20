@@ -1,0 +1,178 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*{
+    text-decoration: none;
+}
+
+.main-header {
+    min-height: 55px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* This will push the logo to the left and nav to the right */
+    background-color: #00BFA5;
+    padding: 0 40px; /* Add some padding on the sides for better spacing */
+}
+
+.main-header img {
+    width: 140px;
+    height: 60px; /* Adjusted height to fit within the header */
+    object-fit: contain; /* Ensures the image scales down to fit without cropping */
+}
+
+/* Also ensure the nav element itself is set up correctly */
+.main-header nav {
+    display: flex; /* Make the nav container a flexbox */
+    align-items: center; /* Vertically align items within the nav */
+    padding: 0; /* Remove default padding for nav */
+    margin: 0; /* Remove default margin for nav */
+}
+
+/* Corrected selector from .main-header navbar li to .main-header nav li */
+.main-header nav li {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    list-style: none; /* Remove default bullet points from list items */
+}
+
+/* Style the links within the nav if needed */
+.main-header nav li a {
+    color: white; /* Example color for links */
+    font-size: 16px; /* Example font size */
+    padding: 5px 10px; /* Add some padding to links */
+}
+
+/* To ensure the div wrapping the image aligns correctly with its parent */
+.main-header div {
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* This is the hero section style */
+.hero-section {
+    height: 400px;
+    background: linear-gradient(to right, #0B1B32, #162C4E);
+    padding-top: 1px; /* This "contains" any margins inside from escaping */
+}
+.hero-text{
+    color: white;
+    margin-top: 80px;
+    margin-left: 20px;
+}
+
+/* ...existing code... */
+
+.cta-buttons {
+    margin-top: 20px;
+}
+
+.cta-buttons button {
+    background-color: #00BFA5; /* Matching your header color */
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 30px; /* This creates the rounded/pill shape */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.cta-buttons button:hover {
+    background-color: #009688; /* Slightly darker on hover */
+}
+
+/* Optional: Style the second button differently to create hierarchy */
+.cta-buttons button:last-child {
+    background-color: transparent;
+    border: 2px solid white;
+}
+
+.cta-buttons button:last-child:hover {
+    background-color: white;
+    color: #0B1B32;
+}
+
+
+/* ...Details Section Styling... */
+.details{
+    margin-left: 20px;
+    min-height: 500px;
+    background-color: #00BFA5;
+    margin: 0;
+    padding: 1px;
+}
+
+
+/* Optional: Removes default margin from the paragraph to keep it perfectly aligned */
+.wholesale-heading p {
+    margin: 0;
+}
+
+.details p {
+    color: white;
+    
+}
+.details-text{
+    color: white;
+}
+
+.Wholesale-details {
+    display: flex;
+    gap: 20px;
+    margin-left: 25px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    background: linear-gradient(to right, #0B1B32, #162C4E); /* Dark blue background */
+    padding: 30px;
+    border-radius: 15px; /* Rounded corners for the card */
+    flex: 1;             /* Makes both cards take up equal width */
+    max-width: 500px;    /* Keeps the card at a reasonable width */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+}
+
+.wholesale-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.details-text {
+    color: white;
+    list-style: disc; 
+    padding-left: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+.card-cta {
+    background-color: #00BFA5;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card-cta:hover {
+    background-color: #009688;
+    transform: translateY(-2px);
+}
