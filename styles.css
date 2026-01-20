@@ -54,16 +54,25 @@ body {
 
 
 
+.design{
+    min-height: 400px;
+}
+
+
+
 /* This is the hero section style */
 .hero-section {
     height: 400px;
     background: linear-gradient(to right, #0B1B32, #162C4E);
-    padding-top: 1px; /* This "contains" any margins inside from escaping */
+    display: flex;           /* Enables side-by-side layout */
+    align-items: center;      /* Centers items vertically */
+    justify-content: space-between; /* Pushes text left and image right */
+    padding: 0 40px;         /* Adds breathing room on both sides */
 }
 .hero-text{
     color: white;
-    margin-top: 80px;
     margin-left: 20px;
+    flex: 1;
 }
 
 /* ...existing code... */
