@@ -1,6 +1,12 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
 }
 
 *{
@@ -12,9 +18,13 @@ body {
     height: 65px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* This will push the logo to the left and nav to the right */
+    justify-content: space-between;
     background-color: #00BFA5;
-    padding: 0 40px; /* Add some padding on the sides for better spacing */
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 191, 165, 0.1);
 }
 
 .main-header img {
@@ -41,9 +51,26 @@ body {
 
 /* Style the links within the nav if needed */
 .main-header nav li a {
-    color: white; /* Example color for links */
-    font-size: 16px; /* Example font size */
-    padding: 5px 10px; /* Add some padding to links */
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.main-header nav li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.main-header nav li a:hover::after {
+    width: 100%;
 }
 
 /* To ensure the div wrapping the image aligns correctly with its parent */
@@ -54,25 +81,128 @@ body {
 
 
 
-.design{
+.design {
+    padding: 40px 0;
+    background-color: #f8fafc;
     min-height: 400px;
 }
 
+.design-heading {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #00BFA5;
+}
+
+.design-text {
+    text-align: center; /* Centers the headings */
+    margin-bottom: 40px; /* Space between the text and the map */
+}
+
+.design-text p:first-child {
+    font-size: 32px;
+    font-weight: bold;
+    color: #0B1B32;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 10px;
+}
+
+.design-text p:last-child {
+    font-size: 18px;
+    color: #475569;
+    font-family: 'Inter', sans-serif;
+}
+
+.design-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 40px 0;
+}
+
+.ghanamap img {
+    height: 450px;
+    filter: drop-shadow(0 10px 30px rgba(0, 191, 165, 0.3));
+    transition: transform 0.5s ease;
+}
+
+.ghanamap:hover img {
+    transform: scale(1.05);
+}
+
+.design-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
 
 /* This is the hero section style */
 .hero-section {
-    height: 400px;
+    height: 470px;
     background: linear-gradient(to right, #0B1B32, #162C4E);
-    display: flex;           /* Enables side-by-side layout */
-    align-items: center;      /* Centers items vertically */
-    justify-content: space-between; /* Pushes text left and image right */
-    padding: 0 40px;         /* Adds breathing room on both sides */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    position: relative;
+    overflow: hidden;
 }
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 191, 165, 0.1) 0%, transparent 70%);
+    animation: pulse 15s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(5deg); }
+}
+
 .hero-text{
     color: white;
     margin-left: 20px;
     flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-heading {
+    font-size: 60px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.hero-subheading {
+    margin-top: -45px;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.hero-signup-text {
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    margin-left: 10px;
+}
+
+.hero-image img {
+    height: 430px;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
 }
 
 /* ...existing code... */
@@ -82,16 +212,41 @@ body {
 }
 
 .cta-buttons button {
-    background-color: #00BFA5; /* Matching your header color */
+    background-color: #00BFA5;
     color: white;
     padding: 12px 40px;
     border: none;
-    border-radius: 30px; /* This creates the rounded/pill shape */
+    border-radius: 30px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     margin-right: 15px;
-    transition: background-color 0.3s ease; /* Smooth hover effect */
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    margin-top: -50px;
+    animation: ripple-animation 0.6s;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
 
 .cta-buttons button:hover {
@@ -113,10 +268,25 @@ body {
 /* ...Details Section Styling... */
 .details{
     margin-left: 20px;
-    min-height: 500px;
+    min-height: 600px;
     background-color: #00BFA5;
     margin: 0;
     padding: 1px;
+}
+
+.details-heading {
+    margin-left: 25px;
+}
+
+.details-title {
+    font-size: 35px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+
+.details-subtitle {
+    font-family: 'Inter', sans-serif;
+    margin-top: -20px;
 }
 
 
@@ -142,46 +312,296 @@ body {
 }
 
 .info-card {
-    background: linear-gradient(to right, #0B1B32, #162C4E); /* Dark blue background */
-    padding: 30px;
-    border-radius: 15px; /* Rounded corners for the card */
-    flex: 1;             /* Makes both cards take up equal width */
-    max-width: 500px;    /* Keeps the card at a reasonable width */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    background: linear-gradient(135deg, #0B1B32 0%, #162C4E 50%, #1a3456 100%);
+    padding: 35px;
+    border-radius: 20px;
+    flex: 1;
+    max-width: 500px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 191, 165, 0.2);
+}
+
+/* Shimmer effect */
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 191, 165, 0.15), transparent);
+    transition: left 0.6s ease;
+}
+
+/* Top accent line */
+.info-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00BFA5, #00d4b8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.info-card:hover::before {
+    left: 100%;
+}
+
+.info-card:hover::after {
+    opacity: 1;
+}
+
+.info-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 50px rgba(0, 191, 165, 0.25), 0 8px 20px rgba(0,0,0,0.2);
+    border-color: rgba(0, 191, 165, 0.4);
 }
 
 .wholesale-heading {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(0, 191, 165, 0.2);
+    position: relative;
+}
+
+.wholesale-heading img {
+    height: 45px;
+    width: 45px;
+    padding: 8px;
+    background: rgba(0, 191, 165, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.info-card:hover .wholesale-heading img {
+    background: rgba(0, 191, 165, 0.2);
+    transform: rotate(5deg) scale(1.1);
+}
+
+.wholesale-title {
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    color: #00BFA5;
+    letter-spacing: 0.5px;
 }
 
 .details-text {
-    color: white;
-    list-style: disc; 
-    padding-left: 20px;
+    color: #e2e8f0;
+    list-style: none;
+    padding-left: 0;
     font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 2;
+    margin-top: 0;
+}
+
+.details-text li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+}
+
+.details-text li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #00BFA5;
     font-weight: bold;
-    line-height: 1.8;
+    font-size: 18px;
+    background: rgba(0, 191, 165, 0.15);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.info-card:hover .details-text li {
+    padding-left: 35px;
+    color: white;
 }
 
 .card-cta {
-    background-color: #00BFA5;
+    background: linear-gradient(135deg, #00BFA5, #00d4b8);
     color: white;
-    padding: 10px 30px;
+    padding: 12px 35px;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 20px;
     margin-bottom: 5px;
     font-family: 'Inter', sans-serif;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 191, 165, 0.3);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.card-cta:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .card-cta:hover {
-    background-color: #009688;
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, #009688, #00BFA5);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 191, 165, 0.4);
+}
+
+.card-cta:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 191, 165, 0.3);
+}
+
+.right-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 15px 15px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08); /* Soft, modern shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    margin-left: auto; /* Aligns to right within the parent container */
+    width: fit-content;
+}
+
+/* Hover Effect: Lift the card */
+.right-icon:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+.right-icon img {
+    height: 100px; /* Reduced size for better balance */
+    width: 140px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+}
+
+/* Hover Effect: Pop the icon */
+.right-icon:hover img {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* The Number (1500+) */
+.right-icon p:nth-of-type(1) {
+    margin-top: -20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #0B1B32;
+    line-height: 1;
+}
+
+/* The Label (DISTRIBUTOR) */
+.right-icon p:nth-of-type(2) {
+    margin-top: -30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+.left-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 15px 15px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08); /* Soft, modern shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    margin-left: auto; /* Aligns to right within the parent container */
+    width: fit-content;
+}
+
+/* Hover Effect: Lift the card */
+.left-icon:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+.left-icon img {
+    height: 100px; /* Reduced size for better balance */
+    width: 140px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+}
+
+/* Hover Effect: Pop the icon */
+.left-icon:hover img {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* The Number (1500+) */
+.left-icon p:nth-of-type(1) {
+    margin-top: -20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #0B1B32;
+    line-height: 1;
+}
+
+/* The Label (DISTRIBUTOR) */
+.left-icon p:nth-of-type(2) {
+    margin-top: -30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Fade in animations */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

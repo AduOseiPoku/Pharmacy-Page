@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Pharm Direct</title>
 </head>
@@ -20,13 +23,13 @@
     <!-- This is the Hero Section -->
     <section class="hero-section">
         <div class="hero-text">
-            <p style="font-size: 60px;font-family: inter;font-weight: bold;margin-left: 10px;">
+            <p class="hero-heading">
                 The Future of Medicine <br>Supply is Here
             </p>
-            <p style="margin-top: -45px; font-size: 18px;margin-left: 10px;">
+            <p class="hero-subheading">
                 Streamline Procurement, Reduce Costs and ensure availability
             </p>
-            <p style="margin-top: 20px; font-weight: bold;font-family: inter;margin-left: 10px;">
+            <p class="hero-signup-text">
                 Sign Up
             </p>
             <div class="cta-buttons">
@@ -34,16 +37,52 @@
                 <button>Wholesaler</button>
             </div>
         </div>
-        <div>
-            <img src="assets/pharmdirectphone_image-removebg.png" alt="Phone App" style="height:430px;">
+        <div class="hero-image">
+            <img src="assets/pharmdirectphone_image-removebg.png" alt="Phone App">
         </div>
     </section>
 
     
-    <!-- This is the details section of the page -->
+    <!-- This is the design section of the page -->
     <section class="design">
-        <div class="ghanamap" style="display: flex;justify-content: flex-end;margin-right: 150px;">
-            <img src="assets/nobg ghanamap.png" alt="Ghana">
+        <div class="design-heading">
+                <p>Ecosystem For All Pharmacies In Ghana</p>
+        </div>
+        <div class="design-wrapper">
+            
+            <!-- Left Side -->
+            <div class="design-column">
+                <div class="left-icon">
+                    <img src="assets/truck_icon-removebg.png" alt="">
+                    <p>500+</p>
+                    <P>DISTRIBUTOR</P>
+                </div>
+                <div class="left-icon">
+                    <img src="assets/retialers_icon-removebg.png" alt="">
+                    <p>1500+</p>
+                    <P>RETAILERS</P>
+                </div>
+            </div>
+
+            <!-- Center Map -->
+            <div class="ghanamap">
+                <img src="assets/nobg ghanamap.png" alt="Ghana">
+            </div>
+
+            <!-- Right Side -->
+            <div class="design-column">
+                <div class="right-icon">
+                    <img src="assets/truck_icon-removebg.png" alt="">
+                    <p>500+</p>
+                    <P>DISTRIBUTOR</P>
+                </div>
+                <div class="right-icon">
+                    <img src="assets/retialers_icon-removebg.png" alt="">
+                    <p>1500+</p>
+                    <P>RETAILERS</P>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -52,24 +91,24 @@
     
     <!-- This is the details section of the page -->
      <section class="details">
-        <div class="details-heading" style="margin-left: 25px;">
-            <p style="font-size: 35px;font-family: inter;font-weight: bold;">
+        <div class="details-heading">
+            <p class="details-title">
                 Work with us 
             </p>
-            <p style="font-family: inter;margin-top: -20px;">
+            <p class="details-subtitle">
                 Connect with a network of trusted pharmaceutical wholesalers and retailers to ensure<br> your business has access to the medical supply it needs when it needs it.
             </p>
         </div>
 
         <div class="Wholesale-details">
             <div class="info-card">
-                <div class="wholesale-heading" >
-                    <img src="assets/wholesaleicon.png" alt="" style="height: 40px;  ">
-                    <p style="font-size: 18px;font-family: inter;font-weight: bold;">
+                <div class="wholesale-heading">
+                    <img src="assets/wholesaleicon.png" alt="">
+                    <p class="wholesale-title">
                         Wholesalers
                     </p>
                 </div>
-                <ul class="details-text" style="margin-top: -20px;">
+                <ul class="details-text">
                     <li>
                         Market Expansion: Expand sales to untapped pharmacies
                     </li>
@@ -83,13 +122,13 @@
                 <button class="card-cta">Sign Up</button>
             </div>
             <div class="info-card">
-                <div class="wholesale-heading" >
-                    <img src="assets/wholesaleicon.png" alt="" style="height: 40px;  ">
-                    <p style="font-size: 18px;font-family: inter;font-weight: bold;">
+                <div class="wholesale-heading">
+                    <img src="assets/wholesaleicon.png" alt="">
+                    <p class="wholesale-title">
                         Retailers
                     </p>
                 </div>
-                <ul class="details-text" style="margin-top: -20px;">
+                <ul class="details-text">
                     <li>
                         Inventory Management: Sync stock, prevent overselling errors
                     </li>
@@ -107,5 +146,7 @@
             </div>
         </div>
      </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
